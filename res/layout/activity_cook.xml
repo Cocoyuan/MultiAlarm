@@ -2,35 +2,66 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/cook" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Setting the Cooking Alarm" />
+        
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical">
+       	</LinearLayout>
+  		<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+       	android:layout_gravity="center_horizontal">
 
-    <TimePicker
-        android:id="@+id/timePicker1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+  		<TextView
+  		    android:id="@+id/mytime"
+  		    android:layout_width="match_parent"
+  		    android:layout_height="150dp"
+  		    android:gravity="center"
+  		    android:textColor="@android:color/black"
+  		    android:textSize="60sp" />	   
+	   
+	    <Button
+	        android:id="@+id/bt_set"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:text="Add Alarm" />
+	    
+ 	</LinearLayout>
 
-    <Switch
-        android:id="@+id/switch_s"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sound" />
-    
-    <Switch
-        android:id="@+id/switch_v"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vibrate" />
+  	
 
-    <Button
-        android:id="@+id/button_set"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Set" />
+  	    <LinearLayout
+  	        android:layout_width="match_parent"
+  	        android:layout_height="wrap_content"
+  	        android:orientation="horizontal"
+  	         >
 
+  	        <Button
+  	            android:id="@+id/bt_noisy"
+  	            android:layout_width="wrap_content"
+  	            android:layout_height="150dp"
+  	            android:layout_weight="1"
+  	            android:background="#00000000" />
+
+  	        <Button
+  	            android:id="@+id/bt_regular"
+  	            android:layout_width="wrap_content"
+  	            android:layout_height="150dp"
+  	            android:layout_weight="1"
+  	            android:background="#00000000" />
+
+  	        <Button
+  	            android:id="@+id/button"
+  	            android:layout_width="wrap_content"
+  	            android:layout_height="150dp"
+  	            android:layout_weight="1"
+  	            android:background="#00000000" />
+  	    </LinearLayout>
+  	
 </LinearLayout>
