@@ -32,7 +32,7 @@ import android.widget.ToggleButton;
 
 public class SleepActivity extends Activity{
 
-	private Button bt_set;									// setting alarm button
+	private Button bt_set,bt_noisy;									// setting alarm button
 	private ToggleButton btn_enClk;						// alarm enable button
 	private ToggleButton togbtn_AlarmStyle;
 	private TextView tv_alarm,tvTime;
@@ -82,7 +82,16 @@ public class SleepActivity extends Activity{
 		tvTime = (TextView) findViewById(R.id.mytime);
 		new TimeThread().start(); //启动新的线程
 		tv_alarm = (TextView) findViewById(R.id.textView_alarm);
-		
+		bt_noisy = (Button) this.findViewById(R.id.bt_noisy);
+        bt_noisy.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+							
+				Intent noisyIntent = new Intent(SleepActivity.this,SleepNActivity.class);
+				startActivityForResult(noisyIntent, 0);
+			}
+		});
 		instance = this;										// close this activity in ShakeAlarm layout
 		shakeSenseValue = getResources().getString(R.string.shakeSenseValue_2);
 		String timeOnBtn = "";
