@@ -4,9 +4,6 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import com.example.multialarm.SelfNActivity.TimeThread;
-
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.AlertDialog;
@@ -132,6 +129,7 @@ public class SleepActivity extends Activity{
 					R.layout.activity_alarm, null);
 		}
 
+		@SuppressWarnings("deprecation")
 		private void enableClk()
 		{
 			timePicker = (TimePicker) setAlarmLayout

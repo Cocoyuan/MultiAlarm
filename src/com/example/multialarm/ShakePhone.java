@@ -3,8 +3,6 @@ package com.example.multialarm;
 import java.io.IOException;
 import java.util.List;
 
-import android.app.Activity;
-import android.app.Service;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -18,6 +16,8 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.SystemClock;
 import android.os.Vibrator;
+import android.app.Activity;
+import android.app.Service;
 import android.text.Html;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -27,29 +27,28 @@ import android.widget.Chronometer;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class ShakePhone extends Activity
 {
 	// 感应管理器
 	private SensorManager mSensorManager;
 
-	// shake sensor
+	// 震动器
 	private Vibrator vibrator;
 
 	private SensorEventListener sensorListener;		// 申明传感器监听事件
 	private TextView textView;
 	private MediaPlayer mMediaPlayer;
-	//private Exit exit = new Exit();
+	private Exit exit = new Exit();
 	private int alertValue = 0;
 	private boolean wakeUp = false;						// 标志是否醒来
 
 	private Chronometer chronometer;
-/**
+
 	private void getWidget()
 	{
 		textView = (TextView) findViewById(R.id.shake_sence_value);
 		chronometer = (Chronometer) findViewById(R.id.cm_count);
-		chronometer.setFormat("Use %s s to wake up");
+		chronometer.setFormat("Using%s s to get up this time");
 	}
 
 	private void playAlarm()
@@ -116,8 +115,6 @@ public class ShakePhone extends Activity
 		// 1获得硬件信息
 
 		vibrator = (Vibrator) getSystemService(Service.VIBRATOR_SERVICE);
-	
-
 
 		if (SleepActivity.getAlarmStyle())
 		{
@@ -183,7 +180,7 @@ public class ShakePhone extends Activity
 							}
 							mSensorManager.unregisterListener(sensorListener);
 							textView.setTextColor(android.graphics.Color.MAGENTA);
-							textView.setText("Value of Wake Up:\n100%\n\nGet up succeed\n☺");
+							textView.setText("Wake up Value:\n100%\n\nget up succeed\n☺");
 
 							chronometer.stop();
 							chronometer.setVisibility(View.VISIBLE);
@@ -194,7 +191,7 @@ public class ShakePhone extends Activity
 						else
 						{
 							CharSequence senceValue = Html
-									.fromHtml("<big><b>Value of Wake Up:\n" + alertValue
+									.fromHtml("<big><b>Wake Up Value:\n" + alertValue
 											+ "%</b></big>");
 							textView.setText(senceValue);
 							// vibrator.vibrate(1000); //摇晃振动
@@ -231,8 +228,7 @@ public class ShakePhone extends Activity
 	/*
 	 * 按两次退出
 	 */
-/**
-		private void pressAgainExit()
+	private void pressAgainExit()
 	{
 		if (exit.isExit())
 		{
@@ -284,5 +280,5 @@ public class ShakePhone extends Activity
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	**/
+
 }
